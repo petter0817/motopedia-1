@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import routes from './Router'
+import { useLocation, useRoutes } from 'react-router-dom';
+import Header from './Format/header';
+import "./Style/main.css"
+import MotoData from './FirebaseData/MotoData';
+import { useDispatch } from 'react-redux';
+import { Brand } from './Redux/Action/Brand';
 
-function App() {
+const App = () => {
+  const element=useRoutes(routes)
+  //GetFirebaseData
+  MotoData()
+
+  const {pathname}=useLocation()
+  const dispatch = useDispatch()
+  if(pathname !== "/brand") {
+    dispatch(Brand(""))
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header/>
+      {element}
     </div>
   );
 }
