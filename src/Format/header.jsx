@@ -14,17 +14,19 @@ const Header = () => {
 
     return (
         <header
-            className='vw-100 border-bottom position-relative d-flex align-items-center justify-content-center'>
+            className='vw-100 border-bottom d-flex align-items-center justify-content-between'
+        >
+            <NavLink to="/" className='display-3 p-0 m-0 text-decoration-none text-dark'>MotoPedia</NavLink>
             <svg
                 onClick={() => { setShow(!show) }}
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
-                className="bi bi-justify h-100 p-1 position-absolute top-0 start-0"
+                className="bi bi-justify h-100 p-1"
                 viewBox="0 0 16 16"
             >
                 <path fillRule="evenodd" d="M2 12.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z" />
             </svg>
-            <NavLink to="/" className='display-3 p-0 m-0 text-decoration-none text-dark'>MotoPedia</NavLink>
+            
             <Offcanvas show={show} onHide={() => { setShow(false) }}>
                 <Offcanvas.Header closeButton className='border-bottom'>
                     <NavLink
